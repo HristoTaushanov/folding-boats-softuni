@@ -1,4 +1,4 @@
-package bg.softuni.emptyproject.model.enums;
+package bg.softuni.boats.model.enums;
 
 public enum UserRoleEnum {
     ADMIN,

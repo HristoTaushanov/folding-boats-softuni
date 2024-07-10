@@ -1,4 +1,4 @@
-package bg.softuni.emptyproject;
+package bg.softuni.boats;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
