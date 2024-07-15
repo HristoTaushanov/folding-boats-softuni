@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/boats?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    #    url: "jdbc:mysql://visioplan.mysql.database.azure.com:3306/visioDB?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    #    username: ${MYSQL_USER:root}
+    #    password: ${MYSQL_PASSWORD:root}
+    username: root
+    password: 1234
+
+
+  application:
+    name: folding-boats-softuni
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  open-in-view: false
+  properties:
+    hibernate:
+      format_sql: true
+  defer-datasource-initialization: true
