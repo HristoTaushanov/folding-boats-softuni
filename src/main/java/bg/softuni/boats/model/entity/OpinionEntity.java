@@ -3,21 +3,31 @@ package bg.softuni.boats.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "opinions")
 public class OpinionEntity extends BaseEntity{
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private UserEntity author;
-    @Column(nullable = false)
+    @Column(columnDefinition = "LONGTEXT")
     private String textContent;
     @Column(nullable = false)
     private LocalDateTime created;
 
-    public OpinionEntity() {
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private BoatEntity boat;
 
+    @OneToMany(targetEntity = CommentEntity.class, mappedBy = "opinionEntity")
+    private Set<CommentEntity> comments;
+
+    public OpinionEntity() {
+        this.comments = new HashSet<>();
     }
+
+
 
     public UserEntity getAuthor() {
         return author;

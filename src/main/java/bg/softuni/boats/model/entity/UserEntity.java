@@ -27,6 +27,7 @@ public class UserEntity extends BaseEntity{
     private List<OpinionEntity> addedOpinionEntities;
 
     public UserEntity() {
+
     }
 
     public String getUsername() {
