@@ -14,7 +14,7 @@ public class CommentEntity extends BaseEntity{
     @Column(nullable = false)
     private Instant created;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(name = "text_content", columnDefinition = "TEXT", nullable = false)
     private String content;
 
     @ManyToOne(optional = false)
