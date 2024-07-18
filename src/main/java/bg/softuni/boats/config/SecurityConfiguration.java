@@ -1,5 +1,6 @@
 package bg.softuni.boats.config;
 
+import bg.softuni.boats.repository.UserRepository;
 import bg.softuni.boats.service.LoginUserDetailService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -46,8 +47,8 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return new LoginUserDetailService();
+    public UserDetailsService userDetailsService(UserRepository userRepository) {
+        return new LoginUserDetailService(userRepository);
     }
 
     @Bean

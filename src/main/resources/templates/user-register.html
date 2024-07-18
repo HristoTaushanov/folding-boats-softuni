@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Register user</title></head>
+<link rel="stylesheet" th:href="@{/css/user-register-form.css}"/>
+<body>
+
+<div class="d-flex justify-content-center align-items-center container">
+
+    <div class="card py-5 px-3">
+        <h2 class="text-center text-black">Register User</h2>
+        <form th:action="@{/users/register}"
+              th:method="POST"
+              th:object="${userRegistrationDTO}"
+              class="row g-3"
+              id="registration-form">
+
+            <div class="col-md-6">
+                <label for="username" class="text-black font-weight-bold">Username</label>
+                <input id="username"
+                       th:field="*{username}"
+                       th:errorclass="is-invalid"
+                       type="text"
+                       class="form-control"
+                       placeholder="Username"/>
+                <p th:if="${#fields.hasErrors('username')}"
+                   th:errors="*{username}"
+                   class="invalid-feedback"></p>
+            </div>
+
+            <div class="col-md-6">
+                <label for="email" class="text-black font-weight-bold">Email</label>
+                <input id="email"
+                       th:field="*{email}"
+                       th:errorclass="is-invalid"
+                       type="text"
+                       class="form-control"
+                       placeholder="Email"/>
+                <p th:if="${#fields.hasErrors('email')}"
+                   th:errors="*{email}"
+                   class="invalid-feedback"></p>
+            </div>
+
+
+            <div class="col-md-6">
+                <label for="firstName" class="text-black font-weight-bold">First name</label>
+                <input id="firstName"
+                       th:field="*{firstName}"
+                       th:errorclass="is-invalid"
+                       type="text"
+                       class="form-control"
+                       placeholder="First Name"/>
+                <p th:if="${#fields.hasErrors('firstName')}"
+                   th:errors="*{firstName}"
+                   class="invalid-feedback"></p>
+            </div>
+
+            <div class="col-md-6">
+                <label for="lastName" class="text-black font-weight-bold">Last name</label>
+                <input id="lastName"
+                       th:field="*{lastName}"
+                       th:errorclass="is-invalid"
+                       type="text"
+                       class="form-control"
+                       placeholder="Last Name"/>
+                <p th:if="${#fields.hasErrors('lastName')}"
+                   th:errors="*{lastName}"
+                   class="invalid-feedback">
+
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <label for="password" class="text-black font-weight-bold">Password</label>
+                <input id="password"
+                       th:field="*{password}"
+                       th:errorclass="is-invalid"
+                       type="password"
+                       class="form-control"
+                       placeholder="Password"/>
+                <p th:if="${#fields.hasErrors('password')}"
+                   th:errors="*{password}"
+                   class="invalid-feedback"></p>
+            </div>
+
+            <div class="col-md-6">
+                <label for="confirmPassword" class="text-black font-weight-bold">Confirm password</label>
+                <input id="confirmPassword"
+                       th:field="*{confirmPassword}"
+                       th:errorclass="is-invalid"
+                       type="password"
+                       class="form-control"
+                       placeholder="Confirm password"/>
+                <p th:if="${#fields.hasErrors('confirmPassword')}"
+                   th:errors="*{confirmPassword}"
+                   class="invalid-feedback"></p>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <button class="g-recaptcha btn btn-primary"
+                        th:attr="data-sitekey=${@reCaptchaConfig.getSiteKey()}"
+                        data-callback='onSubmit'
+                        data-action='submit'>Register
+                </button>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <div class="button-holder">
+                    <a href="/users/login" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- ReCaptcha -->
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+<script>
+    function onSubmit(token) {
+        document.getElementById("registration-form").submit();
+    }
+</script>
+
+<!-- EO: ReCaptcha -->
+
+</body>

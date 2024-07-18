@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Profile</title></head>
+
+<link rel="stylesheet" th:href="@{/css/user-profile-view.css}"/>
+
+<body>
+<nav th:replace="~{fragments/commons::navbar}"></nav>
+
+<div class="card text-center m-auto mt-5" style="width: 18rem;"
+     th:object="${user}">
+    <img src="/images/Empty_profile_pic.jpg" class="card-img-top" alt="empty profile picture">
+    <div class="card-body">
+        <h5 class="card-title" th:text="*{fullName}">Full name</h5>
+        <h6 class="card-title" th:text="*{email}">Email</h6>
+
+        <form th:method="GET"
+              th:action="@{/user/profile/edit}">
+            <input type="submit" value="Edit profile" class="btn btn-primary">
+        </form>
+
+    </div>
+</div>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+</body>
+
+</html>
+
+
