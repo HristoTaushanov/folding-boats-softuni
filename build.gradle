@@ -25,9 +25,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.modelmapper:modelmapper:3.2.0'
     runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.modelmapper:modelmapper:3.2.0'
+    implementation "org.modelmapper:modelmapper-module-record:1.0.0"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 }
 
 tasks.named('test') {

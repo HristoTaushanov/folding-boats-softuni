@@ -7,6 +7,7 @@ import bg.softuni.boats.model.view.UserViewModel;
 import bg.softuni.boats.model.view.UserWithRoleViewModel;
 import org.springframework.data.domain.Page;
 
+import java.util.Collection;
 import java.util.Optional;
 
 public interface UserService {
