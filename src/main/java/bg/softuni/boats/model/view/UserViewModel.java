@@ -6,7 +6,6 @@ public class UserViewModel {
     private String email;
     private String firstName;
     private String lastName;
-    private String company;
 
     public UserViewModel() {
     }
@@ -54,10 +53,6 @@ public class UserViewModel {
     public UserViewModel setLastName(String lastName) {
         this.lastName = lastName;
         return this;
-    }
-
-    public String getCompany() {
-        return company;
     }
 
     public String getFullName() {
