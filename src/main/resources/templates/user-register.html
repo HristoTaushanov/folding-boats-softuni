@@ -96,8 +96,7 @@
             </div>
 
             <div class="col-md-6 text-center">
-                <button class="g-recaptcha btn btn-primary"
-                        th:attr="data-sitekey=${@reCaptchaConfig.getSiteKey()}"
+                <button class="btn btn-primary"
                         data-callback='onSubmit'
                         data-action='submit'>Register
                 </button>
@@ -112,18 +111,5 @@
         </form>
     </div>
 </div>
-
-
-<!-- ReCaptcha -->
-
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
-<script>
-    function onSubmit(token) {
-        document.getElementById("registration-form").submit();
-    }
-</script>
-
-<!-- EO: ReCaptcha -->
 
 </body>

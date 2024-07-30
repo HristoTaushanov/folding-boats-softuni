@@ -23,10 +23,6 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/", "/users/login", "/users/register", "/users/login-error", "/contact").permitAll()
                         .requestMatchers("/features").permitAll()
-//                        .requestMatchers("/projects").hasRole(RolesEnum.ADMIN.name())
-//                        .requestMatchers("/user/all/**").hasRole(RolesEnum.ADMIN.name())
-//                        .requestMatchers("/building/add").hasRole(RolesEnum.ADMIN.name())
-//                        .requestMatchers("/building/all").hasRole(RolesEnum.ADMIN.name())
                         .anyRequest().authenticated()
         ).formLogin(
                 formLogin -> {

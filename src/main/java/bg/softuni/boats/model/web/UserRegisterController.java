@@ -2,8 +2,6 @@ package bg.softuni.boats.model.web;
 
 
 import bg.softuni.boats.model.dto.UserRegistrationDTO;
-import bg.softuni.boats.model.dto.RecaptchaResponseDTO;
-import bg.softuni.boats.service.RecaptchaService;
 import bg.softuni.boats.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -19,11 +17,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/users")
 public class UserRegisterController {
     private final UserService userService;
-    private final RecaptchaService recaptchaService;
 
-    public UserRegisterController(UserService userService, RecaptchaService recaptchaService) {
+    public UserRegisterController(UserService userService) {
         this.userService = userService;
-        this.recaptchaService = recaptchaService;
     }
 
     @GetMapping("/register")
@@ -38,16 +34,7 @@ public class UserRegisterController {
     @PostMapping("/register")
     public String registerUser(@Valid UserRegistrationDTO userRegistrationDTO,
                                BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes,
-                               @RequestParam("g-recaptcha-response") String reCaptchaResponse) {
-
-        boolean isBot = !recaptchaService.verify(reCaptchaResponse)
-                .map(RecaptchaResponseDTO::isSuccess)
-                .orElse(false);
-
-        if (isBot) {
-            return "redirect:/";
-        }
+                               RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("userRegistrationDTO", userRegistrationDTO);

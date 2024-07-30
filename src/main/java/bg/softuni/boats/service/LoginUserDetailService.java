@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 public class LoginUserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -26,15 +28,16 @@ public class LoginUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("username = " + username);
-        return userRepository.findByUsername(username)
+        UserDetails userDetails = userRepository.findByUsername(username)
                 .map(LoginUserDetailService::map)
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + "not found"));
+        return userDetails;
     }
 
     private static UserDetails map(UserEntity userEntity) {
         return User
                 .withUsername(userEntity.getUsername())
-                .password(Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8().encode("1"))
+                .password(userEntity.getPassword())
                 .authorities(userEntity.getRole().stream().map(LoginUserDetailService::map).toList())
                 .build();
     }
