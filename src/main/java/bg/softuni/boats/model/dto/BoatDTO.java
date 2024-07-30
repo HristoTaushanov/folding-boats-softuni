@@ -16,7 +16,7 @@ public class BoatDTO {
 
     private BoatTypeEnum type;
 
-    private MultipartFile photos;
+    private MultipartFile photo;
 
     private Set<OpinionDTO> opinions;
 
@@ -29,7 +29,7 @@ public class BoatDTO {
         this.description = description;
         this.benchesCount = benchesCount;
         this.type = type;
-        this.photos = photos;
+        this.photo = photos;
         this.opinions = opinions;
     }
 
@@ -73,12 +73,12 @@ public class BoatDTO {
         this.type = type;
     }
 
-    public MultipartFile getPhotos() {
-        return photos;
+    public MultipartFile getPhoto() {
+        return photo;
     }
 
-    public void setPhotos(MultipartFile photo) {
-        this.photos = photo;
+    public void setPhoto(MultipartFile photo) {
+        this.photo = photo;
     }
 
     public Set<OpinionDTO> getOpinions() {

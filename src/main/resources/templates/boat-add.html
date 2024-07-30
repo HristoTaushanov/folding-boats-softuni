@@ -11,7 +11,7 @@
     <form class="row g-3"
           th:action="@{/boat/add}"
           th:method="POST"
-          th:object="${BoatDTO}"
+          th:object="${boatDTO}"
           enctype="multipart/form-data">
 
 
@@ -59,7 +59,7 @@
             <input id="type"
                    th:field="*{type}"
                    th:errorclass="is-invalid"
-                   type="type"
+                   type="text"
                    class="form-control"
                    placeholder="Type"/>
             <p th:if="${#fields.hasErrors('type')}"
