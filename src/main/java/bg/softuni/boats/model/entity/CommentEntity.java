@@ -3,16 +3,18 @@ package bg.softuni.boats.model.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
 public class CommentEntity extends BaseEntity{
 
     @Column(nullable = false)
-    private boolean approved;
+    private Boolean approved;
 
     @Column(nullable = false)
-    private Instant created;
+    private LocalDateTime created;
 
     @Column(name = "text_content", columnDefinition = "TEXT", nullable = false)
     private String content;
@@ -33,11 +35,11 @@ public class CommentEntity extends BaseEntity{
         this.approved = approved;
     }
 
-    public Instant getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Instant created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 

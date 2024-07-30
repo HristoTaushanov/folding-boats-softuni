@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>AddBoat</title></head>
+
+<body>
+<nav th:replace="~{fragments/commons::navbar}"></nav>
+
+<article class="my-5 w-50 max-width: 50% mx-auto" id="file-add">
+
+
+    <form class="row g-3"
+          th:action="@{/boat/add}"
+          th:method="POST"
+          th:object="${BoatDTO}"
+          enctype="multipart/form-data">
+
+
+        <div class="col-md-6">
+            <label for="name" class="form-label text-black font-weight-bold">Name</label>
+            <input id="name"
+                   th:field="*{name}"
+                   th:errorclass="is-invalid"
+                   type="text"
+                   class="form-control"
+                   placeholder="Name"/>
+            <p th:if="${#fields.hasErrors('name')}"
+               th:errors="*{name}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-6">
+            <label for="description" class="form-label text-black font-weight-bold">Description</label>
+            <input id="description"
+                   th:field="*{description}"
+                   th:errorclass="is-invalid"
+                   type="text"
+                   class="form-control"
+                   placeholder="Description"/>
+            <p th:if="${#fields.hasErrors('description')}"
+               th:errors="*{description}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-6">
+            <label for="benchesCount" class="form-label text-black font-weight-bold">BenchesCount</label>
+            <input id="benchesCount"
+                   th:field="*{benchesCount}"
+                   th:errorclass="is-invalid"
+                   type="text"
+                   class="form-control"
+                   placeholder="BenchesCount"/>
+            <p th:if="${#fields.hasErrors('benchesCount')}"
+               th:errors="*{benchesCount}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-6">
+            <label for="type" class="form-label text-black font-weight-bold">Type</label>
+            <input id="type"
+                   th:field="*{type}"
+                   th:errorclass="is-invalid"
+                   type="type"
+                   class="form-control"
+                   placeholder="Type"/>
+            <p th:if="${#fields.hasErrors('type')}"
+               th:errors="*{type}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-12">
+            <label for="photo" class="form-label">Upload photo</label>
+            <input type="file"
+                   class="form-control"
+                   th:field="*{photo}"
+                   th:errorclass="is-invalid"
+                   accept="image/jpeg, image/png, image/jpg"
+                   id="photo"/>
+            <p th:if="${#fields.hasErrors('photo')}"
+               th:errors="*{photo}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <button class="btn btn-main" type="submit">Create new boat</button>
+        </div>
+    </form>
+    <footer th:replace="~{fragments/commons::footer}"></footer>
+
+</article>
+
+</body>

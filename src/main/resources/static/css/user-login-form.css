@@ -1,0 +1,44 @@
+body {
+    background-image: url("/images/user-login.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card {
+    width: 450px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #fff;
+    border: 2px solid #f2f2f2;
+    position: relative;
+    box-shadow: 0px 1px 92px 20px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 1px 92px 20px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 1px 92px 20px rgba(0, 0, 0, 1);
+}
+
+img {
+    width: 350px;
+    margin: -10px auto;
+    display: block;
+}
+
+.card {
+    margin-bottom: 200px;
+}
+
+.main-form {
+    margin-top: 20px;
+}
+
+.container {
+    height: 100vh;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgb(22, 33, 65);
+    border: 1px solid white;
+    font-size: 1.2rem;
+}

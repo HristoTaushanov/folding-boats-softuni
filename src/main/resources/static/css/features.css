@@ -1,0 +1,19 @@
+body {
+    background-image: url("../images/index_sunrice.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.custom-text{
+    font-size: 1.20rem;
+}
+.text{
+    margin: 3rem;
+}
+
+@media (max-width: 768px) {
+    .text {
+        margin: 1rem;
+    }
+}
+

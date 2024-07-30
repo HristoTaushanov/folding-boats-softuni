@@ -11,9 +11,6 @@ public class PictureEntity extends BaseEntity{
     @ManyToOne(optional = false)
     private UserEntity author;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private BoatEntity boat;
-
     public PictureEntity() {}
 
     public String getTitle() {
@@ -32,19 +29,4 @@ public class PictureEntity extends BaseEntity{
         this.url = url;
     }
 
-    public UserEntity getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(UserEntity author) {
-        this.author = author;
-    }
-
-    public BoatEntity getBoat() {
-        return boat;
-    }
-
-    public void setBoat(BoatEntity boat) {
-        this.boat = boat;
-    }
 }

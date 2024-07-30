@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Features</title></head>
+<link rel="stylesheet" th:href="@{/css/features.css}">
+
+<header><div th:replace="~{fragments/commons::navbar}"></div></header>
+
+<body>
+    <div class="container my-3 custom-text">
+        <div class="row p-2 pe-lg-0 pt-lg-5 align-items-center rounded-5 border shadow-lg"
+             style="backdrop-filter: blur(0.6rem)">
+            <div class="p-5 pt-3">
+                <h4>FoldingBoats is a website where I'd like to invite you to share your opinion about the boats I've created with a lot of passion and love! With these boats, you can:</h4>
+                <ul>
+                    <li class="text">Go in any lake, sea and ocean only with your car!
+                    </li>
+                    <li class="text">Store them on the wall of your home or just behind the door if you don't have a garage!
+                    </li>
+                    <li class="text">Last, but not least - have a lot of fun with your friends and family.
+                    </li>
+                </ul>
+                <h5>
+                    FoldingBoats is designed to take your opinions about my boats so I can decide should I commercialize them.
+                    Thank you in advance for sharing your thoughts!
+                </h5>
+                <a class="nav-link text-black text-center mt-5" th:href="@{/contact}">Please <strong>don't hesitate</strong> to share your feedback!</a>
+            </div>
+        </div>
+    </div>
+</body>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</html>

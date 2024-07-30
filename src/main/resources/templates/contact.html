@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Feedback</title></head>
+
+<body>
+
+<header><div th:replace="~{fragments/commons::navbar}"></div></header>
+
+<article class="my-5 w-50 mx-auto" id="file-add">
+    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+
+        <div class="bd-example m-5 mx-auto">
+            <h3 class="text-center">Contact us</h3>
+            <form class="row g-3"
+                  th:action="@{/contact}"
+                  th:method="POST"
+                  th:object="${feedbackViewModel}"
+                  novalidate>
+
+                <div class="col-md-12">
+                    <label for="name" class="form-label d-block">Your name</label>
+                    <input type="text"
+                           class="form-control"
+                           th:field="*{name}"
+                           th:errorclass="is-invalid"
+                           id="name"
+                           placeholder="Enter your name">
+                    <div
+                            class="invalid-feedback">
+                        Please enter a name.
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="email" class="form-label d-block">Email</label>
+                    <input type="text"
+                           class="form-control"
+                           th:field="*{email}"
+                           th:errorclass="is-invalid"
+                           id="email"
+                           placeholder="Enter your email">
+                    <div
+                            class="invalid-feedback">
+                        Please provide a valid email.
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="feedback" class="form-label d-block">Write us</label>
+                    <textarea type="text"
+                              class="form-control"
+                              th:field="*{feedback}"
+                              th:errorclass="is-invalid"
+                              id="feedback"
+                              placeholder="Enter your message here">
+                    </textarea>
+                    <div th:if="${#fields.hasErrors('feedback')}"
+                         th:errors="*{feedback}"
+                         class="invalid-feedback">
+                        The minimum length is 10 characters.
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-main" type="submit">Send the message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</article>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
+

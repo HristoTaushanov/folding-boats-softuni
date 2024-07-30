@@ -21,7 +21,7 @@ public class BoatEntity extends BaseEntity{
         @Enumerated(EnumType.STRING)
         private BoatTypeEnum type;
 
-        @OneToMany(targetEntity = PictureEntity.class, mappedBy = "boat")
+        @OneToMany
         private Set<PictureEntity> photos;
 
         @OneToMany(targetEntity = OpinionEntity.class, mappedBy = "boat")
