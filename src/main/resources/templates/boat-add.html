@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/commons::head-bootstrap}"><title>AddBoat</title></head>
 
 <body>
@@ -55,16 +55,24 @@
         </div>
 
         <div class="col-md-6">
-            <label for="type" class="form-label text-black font-weight-bold">Type</label>
-            <input id="type"
-                   th:field="*{type}"
-                   th:errorclass="is-invalid"
-                   type="text"
-                   class="form-control"
-                   placeholder="Type"/>
-            <p th:if="${#fields.hasErrors('type')}"
-               th:errors="*{type}"
-               class="invalid-feedback"></p>
+            <label for="type" class="form-label">Select type</label>
+            <div class="input-group has-validation">
+                <select class="form-select"
+                        th:field="*{type}"
+                        th:errorclass="is-invalid"
+                        id="type"
+                        required=""
+                        aria-describedby="type">
+                    <option selected="selected" value="">Select type</option>
+                    <option th:each="p : ${T(bg.softuni.boats.model.enums.BoatTypeEnum).values()}"
+                            th:text="${p}"
+                            th:value="${p}">
+                    </option>
+                </select>
+                <div th:if="${#fields.hasErrors('type')}"
+                     th:errors="*{type}"
+                     class="invalid-feedback"></div>
+            </div>
         </div>
 
         <div class="col-md-12">
@@ -74,7 +82,8 @@
                    th:field="*{photo}"
                    th:errorclass="is-invalid"
                    accept="image/jpeg, image/png, image/jpg"
-                   id="photo"/>
+                   id="photo"
+                   required/>
             <p th:if="${#fields.hasErrors('photo')}"
                th:errors="*{photo}"
                class="invalid-feedback"></p>

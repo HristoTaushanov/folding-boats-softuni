@@ -147,6 +147,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findUserByEmail(value);
     }
 
+    @Override
+    public UserEntity getAdminEntity() {
+        return userRepository.findByUsername("htaushanov")
+                .orElseThrow(() -> new UserNotFoundException("Admin not found!"));
+    }
+
 
 }
 

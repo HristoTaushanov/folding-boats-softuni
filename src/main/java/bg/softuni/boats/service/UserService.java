@@ -33,4 +33,5 @@ public interface UserService {
 
     Optional<UserEntity> findUserByEmail(String value);
 
+    UserEntity getAdminEntity();
 }

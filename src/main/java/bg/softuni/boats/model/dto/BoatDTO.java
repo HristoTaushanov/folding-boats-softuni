@@ -1,21 +1,26 @@
 package bg.softuni.boats.model.dto;
 
 import bg.softuni.boats.model.enums.BoatTypeEnum;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 
 public class BoatDTO {
+
+    @NotNull(message = "Name cannot be null")
     private String name;
 
     private Long id;
 
     private String description;
-
+    @Min(value = 1)
     private Integer benchesCount;
 
     private BoatTypeEnum type;
 
+    @NotNull
     private MultipartFile photo;
 
     private Set<OpinionDTO> opinions;

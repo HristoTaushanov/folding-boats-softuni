@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/commons::head-bootstrap}"><title>Register user</title></head>
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Login User</title></head>
+
 <link rel="stylesheet" th:href="@{/css/user-login-form.css}"/>
+
 <body>
-
-<div >
-
+<div>
     <div>
-
         <form class="row g-3 main-form"
               th:action="@{/users/login}"
               th:method="POST">
@@ -17,7 +16,7 @@
             </p>
 
             <div class="col-md-12">
-                <label for="username" ></label>
+                <label for="username"></label>
                 <input id="username"
                        name="username"
                        th:value="${username}"
@@ -26,7 +25,7 @@
             </div>
 
             <div class="col-md-12">
-                <label for="password" ></label>
+                <label for="password"></label>
                 <input id="password"
                        name="password"
                        type="password"
@@ -45,10 +44,7 @@
                     <a href="/users/register">Register</a>
                 </div>
             </div>
-
         </form>
     </div>
 </div>
-
-
 </body>

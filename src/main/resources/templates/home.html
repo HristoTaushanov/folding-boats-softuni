@@ -1,6 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Home page</title></head>
+
 <body>
-<h1>HELLO SUCCESS boats should be her</h1>
+<header>
+    <div th:replace="~{fragments/commons::navbar}"></div>
+</header>
+
+<h1>Home page</h1>
+
+
+
+
+
+<div class="container-fluid">
+    <footer th:replace="~{fragments/commons::footer}"></footer>
+</div>
 </body>
 </html>

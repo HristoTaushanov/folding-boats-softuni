@@ -26,3 +26,13 @@ spring:
         format_sql: true
     defer-datasource-initialization: true
 
+cloudinary:
+  cloud-name: "${CLOUDINARY_NAME}"
+  api-key: "${CLOUDINARY_NAME_API_KEY}"
+  api-secret: "${CLOUDINARY_NAME_API_SECRET}"
+
+mail:
+  host: sandbox.smtp.mailtrap.io
+  port: 2525
+  username: ${mailUsername}
+  password: ${mailPassword}

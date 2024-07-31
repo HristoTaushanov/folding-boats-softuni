@@ -4,14 +4,22 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pictures")
-public class PictureEntity extends BaseEntity{
+public class PictureEntity extends BaseEntity {
+
     private String title;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String url;
     @ManyToOne(optional = false)
     private UserEntity author;
 
-    public PictureEntity() {}
+    public PictureEntity() {
+    }
+
+    public PictureEntity(String title, String url, UserEntity author) {
+        this.title = title;
+        this.url = url;
+        this.author = author;
+    }
 
     public String getTitle() {
         return title;
@@ -29,4 +37,12 @@ public class PictureEntity extends BaseEntity{
         this.url = url;
     }
 
+    public UserEntity getAuthor() {
+        return author;
+    }
+
+    public PictureEntity setAuthor(UserEntity author) {
+        this.author = author;
+        return this;
+    }
 }
