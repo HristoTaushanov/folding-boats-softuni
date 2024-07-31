@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>AddBoat</title></head>
+
+<body>
+<nav th:replace="~{fragments/commons::navbar}"></nav>
+
+<article class="my-5 w-50 max-width: 50% mx-auto" id="file-add">
+
+
+    <form class="row g-3"
+          th:action="@{/picture/upload}"
+          th:method="POST"
+          th:object="${uploadPictureDTO}"
+          enctype="multipart/form-data">
+
+
+        <div class="col-md-12">
+            <label for="title" class="form-label text-black font-weight-bold">Title</label>
+            <input id="title"
+                   th:field="*{title}"
+                   th:errorclass="is-invalid"
+                   type="text"
+                   class="form-control"
+                   placeholder="Title"/>
+            <p th:if="${#fields.hasErrors('title')}"
+               th:errors="*{title}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-12">
+            <label for="boatName" class="form-label">Select boat</label>
+            <div class="input-group has-validation">
+                <select class="form-select"
+                        th:field="*{boatName}"
+                        th:errorclass="is-invalid"
+                        id="boatName"
+                        required=""
+                        aria-describedby="type">
+                    <option selected="selected" value="">Select boat name</option>
+                    <option th:each="b : ${boatNames}"
+                            th:text="${b}"
+                            th:value="${b}">
+                    </option>
+                </select>
+                <div th:if="${#fields.hasErrors('boatName')}"
+                     th:errors="*{boatName}"
+                     class="invalid-feedback"></div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="picture" class="form-label">Upload picture</label>
+            <input type="file"
+                   class="form-control"
+                   th:field="*{picture}"
+                   th:errorclass="is-invalid"
+                   accept="image/jpeg, image/png, image/jpg"
+                   id="picture"
+                   required/>
+            <p th:if="${#fields.hasErrors('picture')}"
+               th:errors="*{picture}"
+               class="invalid-feedback"></p>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <button class="btn btn-main" type="submit">Add new photo</button>
+        </div>
+    </form>
+    <footer th:replace="~{fragments/commons::footer}"></footer>
+
+</article>
+
+</body>
