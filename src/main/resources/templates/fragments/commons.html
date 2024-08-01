@@ -36,50 +36,15 @@
                     <li class="nav-item"><a class="nav-link text-black" th:href="@{/features}">Features</a></li>
                     <li class="nav-item"><a class="nav-link text-black" th:href="@{/contact}">Contact</a></li>
                 </th:block>
-                <th:block sec:authorize="isAuthenticated()">
-                    <li class="nav-item"><a class="nav-link text-black" th:href="@{/feedback}">Feedback</a></li>
-                    <li class="nav-item"><a class="nav-link text-black" th:href="@{/company/all}">Companies contacts</a>
-                    </li>
-                </th:block>
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 gap-4">
                 <th:block sec:authorize="isAuthenticated()">
-                    <li class="nav-item"><a class="nav-link text-black" th:href="@{/user/profile}">Profile</a></li>
+                    <a class="nav-link text-black" th:href="@{/users/view-profile}">Profile</a>
 
                     <th:block sec:authorize="hasRole('ADMIN')">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown"
-                               aria-expanded="false">Companies</a>
-
-
-                        <li class="dropdown-item"><a class="nav-link text-black" th:href="@{/company/all}">Show all
-                            companies</a></li>
-                        <li class="dropdown-item"><a class="nav-link text-black" th:href="@{/company/register}">Register
-                            company</a></li>
-
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown"
-                               aria-expanded="false">Users</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a class="nav-link text-black" th:href="@{/user/all}">Show all
-                                    users</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-black"
-                                                         data-bs-toggle="dropdown" aria-expanded="false">Buildings</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a class="nav-link text-black" th:href="@{/building/all}">Show
-                                    all buildings</a></li>
-                                <li class="dropdown-item"><a class="nav-link text-black" th:href="@{/building/add}">Upload
-                                    building</a></li>
-                            </ul>
-                        </li>
+                    <a class="nav-link text-black" th:href="@{/users/all}">Show all users</a>
                     </th:block>
-
 
                     <a class="nav-link text-black" th:href="@{/boat/add}">Add new boat</a>
                     <a class="nav-link text-black" th:href="@{/picture/upload}">Add new picture</a>

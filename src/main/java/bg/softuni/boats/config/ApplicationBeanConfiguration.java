@@ -24,4 +24,5 @@ public class ApplicationBeanConfiguration {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
     }
+
 }

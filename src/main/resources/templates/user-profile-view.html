@@ -8,14 +8,16 @@
 <nav th:replace="~{fragments/commons::navbar}"></nav>
 
 <div class="card text-center m-auto mt-5" style="width: 18rem;"
-     th:object="${user}">
+     th:object="${currentUser}">
     <img src="/images/Empty_profile_pic.jpg" class="card-img-top" alt="empty profile picture">
     <div class="card-body">
-        <h5 class="card-title" th:text="*{fullName}">Full name</h5>
+        <h5 class="card-title" th:text="*{firstName}">First name</h5>
+        <h6 class="card-title" th:text="*{lastName}">Last name</h6>
+        <h6 class="card-title" th:text="*{username}">Username</h6>
         <h6 class="card-title" th:text="*{email}">Email</h6>
 
         <form th:method="GET"
-              th:action="@{/user/profile/edit}">
+              th:action="@{/users/profile/edit}">
             <input type="submit" value="Edit profile" class="btn btn-primary">
         </form>
 

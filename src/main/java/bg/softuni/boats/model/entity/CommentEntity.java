@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 public class CommentEntity extends BaseEntity{
 
     @Column(nullable = false)
-    private Boolean approved;
-
-    @Column(nullable = false)
     private LocalDateTime created;
 
     @Column(name = "text_content", columnDefinition = "TEXT", nullable = false)
@@ -22,17 +19,12 @@ public class CommentEntity extends BaseEntity{
     @ManyToOne(optional = false)
     private UserEntity author;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private OpinionEntity opinionEntity;
-
     public CommentEntity() {}
 
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
+    public CommentEntity(LocalDateTime created, String content, UserEntity author) {
+        this.created = created;
+        this.content = content;
+        this.author = author;
     }
 
     public LocalDateTime getCreated() {
@@ -57,14 +49,6 @@ public class CommentEntity extends BaseEntity{
 
     public void setAuthor(UserEntity author) {
         this.author = author;
-    }
-
-    public OpinionEntity getOpinionEntity() {
-        return opinionEntity;
-    }
-
-    public void setOpinionEntity(OpinionEntity opinionEntity) {
-        this.opinionEntity = opinionEntity;
     }
 }
 

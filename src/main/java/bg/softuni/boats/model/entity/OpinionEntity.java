@@ -12,29 +12,34 @@ public class OpinionEntity extends BaseEntity{
 
     @ManyToOne(optional = false)
     private UserEntity author;
+
     @Column(columnDefinition = "LONGTEXT")
     private String textContent;
+
     @Column(nullable = false)
     private LocalDateTime created;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private BoatEntity boat;
-
-    @OneToMany(targetEntity = CommentEntity.class, mappedBy = "opinionEntity")
+    @OneToMany(targetEntity = CommentEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<CommentEntity> comments;
 
     public OpinionEntity() {
         this.comments = new HashSet<>();
     }
 
-
+    public OpinionEntity(UserEntity author, String textContent, LocalDateTime created, Set<CommentEntity> comments) {
+        this.author = author;
+        this.textContent = textContent;
+        this.created = created;
+        this.comments = comments;
+    }
 
     public UserEntity getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserEntity author) {
+    public OpinionEntity setAuthor(UserEntity author) {
         this.author = author;
+        return this;
     }
 
     public String getTextContent() {
@@ -50,8 +55,18 @@ public class OpinionEntity extends BaseEntity{
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public OpinionEntity setCreated(LocalDateTime created) {
         this.created = created;
+        return this;
+    }
+
+    public Set<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public OpinionEntity setComments(Set<CommentEntity> comments) {
+        this.comments = comments;
+        return this;
     }
 }
 

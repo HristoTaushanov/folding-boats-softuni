@@ -1,21 +1,31 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragments/commons::head-bootstrap}"><title>Home page</title></head>
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Index page</title></head>
+<link rel="stylesheet" th:href="@{/css/index.css}"/>
 
 <body>
 <header>
     <div th:replace="~{fragments/commons::navbar}"></div>
 </header>
 
-<h1>Home page</h1>
-
-
-
-
-
-<div class="container-fluid">
-    <footer th:replace="~{fragments/commons::footer}"></footer>
+<div class="container my-5" th:each="b : ${boats}" th:object="${b}">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-5 border shadow-lg"
+         style="backdrop-filter: blur(0.6rem)">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h3 th:text="|Boat: *{name}|">Boat name</h3>
+            <h5 th:text="|Type: *{type}|">Boat type</h5>
+            <p th:text="|Number of benches: *{benchesCount}|">Benches Count</p>
+            <p th:text="|Description: *{description}|">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
+                non repellendus?Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
+            <a th:href="@{/boat/detail/{id}(id = *{id})}" class="btn">View more info</a>
+        </div>
+        <div class="col-lg-4 p-0 overflow-hidden shadow-lg mb-5 rounded-5">
+            <img class="img-fluid" th:src="*{photo}" alt="" width="720">
+        </div>
+    </div>
 </div>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
 </html>

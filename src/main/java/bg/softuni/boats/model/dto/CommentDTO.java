@@ -3,9 +3,8 @@ package bg.softuni.boats.model.dto;
 import java.time.LocalDateTime;
 
 public class CommentDTO {
-    private Long id;
 
-    private Boolean approved;
+    private Long id;
 
     private LocalDateTime created;
 
@@ -13,18 +12,15 @@ public class CommentDTO {
 
     private String author;
 
-    private OpinionDTO opinion;
 
     public CommentDTO() {
     }
 
-    public CommentDTO(Long id, Boolean approved, LocalDateTime created, String content, String author, OpinionDTO opinion) {
+    public CommentDTO(Long id, LocalDateTime created, String content, String author) {
         this.id = id;
-        this.approved = approved;
         this.created = created;
         this.content = content;
         this.author = author;
-        this.opinion = opinion;
     }
 
     public Long getId() {
@@ -33,14 +29,6 @@ public class CommentDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Boolean getApproved() {
-        return approved;
-    }
-
-    public void setApproved(Boolean approved) {
-        this.approved = approved;
     }
 
     public LocalDateTime getCreated() {
@@ -67,11 +55,10 @@ public class CommentDTO {
         this.author = author;
     }
 
-    public OpinionDTO getOpinion() {
-        return opinion;
-    }
-
-    public void setOpinion(OpinionDTO opinion) {
-        this.opinion = opinion;
+    @Override
+    public String toString() {
+        return "CommentDTO{" +
+                "author='" + author + '\'' +
+                '}';
     }
 }

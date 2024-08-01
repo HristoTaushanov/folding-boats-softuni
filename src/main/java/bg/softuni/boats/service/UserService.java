@@ -34,4 +34,6 @@ public interface UserService {
     Optional<UserEntity> findUserByEmail(String value);
 
     UserEntity getAdminEntity();
+
+    UserViewModel getCurrentUser(String username);
 }

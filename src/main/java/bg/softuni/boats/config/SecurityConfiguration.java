@@ -1,7 +1,7 @@
 package bg.softuni.boats.config;
 
 import bg.softuni.boats.repository.UserRepository;
-import bg.softuni.boats.service.LoginUserDetailService;
+import bg.softuni.boats.service.impl.LoginUserDetailService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,6 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/", "/users/login", "/users/register", "/users/login-error", "/contact").permitAll()
                         .requestMatchers("/features").permitAll()
-                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
         ).formLogin(
                 formLogin -> {

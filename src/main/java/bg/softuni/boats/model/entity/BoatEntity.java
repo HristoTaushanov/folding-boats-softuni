@@ -24,7 +24,7 @@ public class BoatEntity extends BaseEntity{
         @OneToMany(fetch = FetchType.EAGER)
         private Set<PictureEntity> photos;
 
-        @OneToMany(targetEntity = OpinionEntity.class, mappedBy = "boat")
+        @OneToMany(targetEntity = OpinionEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
         private Set<OpinionEntity> opinions;
 
         public BoatEntity() {

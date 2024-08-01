@@ -153,6 +153,13 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UserNotFoundException("Admin not found!"));
     }
 
+    @Override
+    public UserViewModel getCurrentUser(String username) {
+        UserEntity userEntity = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("User with name " + username + " not found!"));
+        return modelMapper.map(userEntity, UserViewModel.class);
+    }
+
 
 }
 

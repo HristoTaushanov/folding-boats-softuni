@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.modelmapper:modelmapper:3.2.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'
     implementation 'org.modelmapper:modelmapper:3.2.0'
     implementation "org.modelmapper:modelmapper-module-record:1.0.0"
