@@ -36,4 +36,6 @@ public interface UserService {
     UserEntity getAdminEntity();
 
     UserViewModel getCurrentUser(String username);
+
+    UserEntity getUserEntityById(Long id);
 }

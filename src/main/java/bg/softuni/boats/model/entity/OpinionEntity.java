@@ -3,7 +3,9 @@ package bg.softuni.boats.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,13 +22,13 @@ public class OpinionEntity extends BaseEntity{
     private LocalDateTime created;
 
     @OneToMany(targetEntity = CommentEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<CommentEntity> comments;
+    private List<CommentEntity> comments;
 
     public OpinionEntity() {
-        this.comments = new HashSet<>();
+        this.comments = new ArrayList<>();
     }
 
-    public OpinionEntity(UserEntity author, String textContent, LocalDateTime created, Set<CommentEntity> comments) {
+    public OpinionEntity(UserEntity author, String textContent, LocalDateTime created, List<CommentEntity> comments) {
         this.author = author;
         this.textContent = textContent;
         this.created = created;
@@ -60,11 +62,11 @@ public class OpinionEntity extends BaseEntity{
         return this;
     }
 
-    public Set<CommentEntity> getComments() {
+    public List<CommentEntity> getComments() {
         return comments;
     }
 
-    public OpinionEntity setComments(Set<CommentEntity> comments) {
+    public OpinionEntity setComments(List<CommentEntity> comments) {
         this.comments = comments;
         return this;
     }

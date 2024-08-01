@@ -9,6 +9,11 @@
     <div th:replace="~{fragments/commons::navbar}"></div>
 </header>
 
+<div class="d-flex justify-content-center align-content-center">
+    <h4>The weather in Tsarevo: </h4>
+    <h4><span id="box-a-temp"> 15</span><span>&#8451;</span></h4>
+</div>
+
 <div class="container my-5" th:each="b : ${boats}" th:object="${b}">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-5 border shadow-lg"
          style="backdrop-filter: blur(0.6rem)">
@@ -27,5 +32,7 @@
 </div>
 
 <footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script th:src="@{/js/weather.js}"></script>
 </body>
 </html>

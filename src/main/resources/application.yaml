@@ -36,3 +36,9 @@ mail:
   port: 2525
   username: ${mailUsername}
   password: ${mailPassword}
+
+server:
+    error:
+      whitelabel:
+        enabled: true
+      path: /error

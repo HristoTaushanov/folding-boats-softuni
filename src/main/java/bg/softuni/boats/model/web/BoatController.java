@@ -36,7 +36,7 @@ public class BoatController {
     }
 
     @PostMapping("/add")
-    public String addBuilding(@Valid BoatDTO boatDTO,
+    public String addBoat(@Valid BoatDTO boatDTO,
                               BindingResult bindingResult,
                               RedirectAttributes redirectAttributes) {
 
@@ -69,12 +69,12 @@ public class BoatController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("opinionForm", opinionForm);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.opinionForm", bindingResult);
-            return "redirect:/detail/{id}";
+            return "redirect:/boat/detail/{id}";
         }
 
         boatService.addNewOpinion(opinionForm.getMessage(), id, principal.getName());
 
-        return "redirect:/home";
+        return "redirect:/boat/detail/{id}";
     }
 
     @PostMapping("/detail/add-comment/{id}/{opinionId}")
@@ -88,12 +88,12 @@ public class BoatController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("commentForm", commentForm);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.commentForm", bindingResult);
-            return "redirect:/detail/{id}";
+            return "redirect:/boat/detail/{id}";
         }
 
         boatService.addNewOpinionComment(commentForm.getCommentContent(), id, opinionId, principal.getName());
 
-        return "redirect:/home";
+        return "redirect:/boat/detail/{id}";
     }
 
 }

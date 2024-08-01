@@ -13,6 +13,8 @@ import bg.softuni.boats.service.BoatService;
 import bg.softuni.boats.service.CloudImageService;
 import bg.softuni.boats.service.PictureService;
 import bg.softuni.boats.service.UserService;
+import bg.softuni.boats.service.exception.BoatNotFoundException;
+import bg.softuni.boats.service.exception.UserNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -53,7 +55,7 @@ public class BoatServiceImpl implements BoatService {
             pictureEntity = photoService.saveImage(imageUrl);
         }
 
-        boatEntity.setPhotos(Set.of(pictureEntity));
+        boatEntity.setPhotos(List.of(pictureEntity));
         boatRepository.save(boatEntity);
 
     }
@@ -98,7 +100,7 @@ public class BoatServiceImpl implements BoatService {
     public BoatDTO getBoatById(Long id) {
         return boatRepository.findById(id)
                 .map(b -> modelMapper.map(b, BoatDTO.class))
-                .orElse(null);
+                .orElseThrow(() -> new BoatNotFoundException("Boat with id " + id + " not found!"));
     }
 
     @Override
@@ -160,7 +162,7 @@ public class BoatServiceImpl implements BoatService {
     public void addNewOpinionComment(String commentContent, Long id, Long opinionId, String username) {
         BoatEntity boatEntity = boatRepository.findById(id).orElse(null);
 
-        Set<OpinionEntity> opinionEntity = boatEntity.getOpinions();
+        List<OpinionEntity> opinionEntity = boatEntity.getOpinions();
         for (OpinionEntity o : opinionEntity) {
             if (o.getId().equals(opinionId)) {
 

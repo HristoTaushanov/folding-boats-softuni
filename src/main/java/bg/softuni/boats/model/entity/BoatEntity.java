@@ -3,8 +3,8 @@ package bg.softuni.boats.model.entity;
 import bg.softuni.boats.model.enums.BoatTypeEnum;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "foldable_boats")
@@ -22,14 +22,14 @@ public class BoatEntity extends BaseEntity{
         private BoatTypeEnum type;
 
         @OneToMany(fetch = FetchType.EAGER)
-        private Set<PictureEntity> photos;
+        private List<PictureEntity> photos;
 
         @OneToMany(targetEntity = OpinionEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-        private Set<OpinionEntity> opinions;
+        private List<OpinionEntity> opinions;
 
         public BoatEntity() {
-                this.photos = new HashSet<>();
-                this.opinions = new HashSet<>();
+                this.photos = new ArrayList<>();
+                this.opinions = new ArrayList<>();
         }
 
         public String getName() {
@@ -64,19 +64,19 @@ public class BoatEntity extends BaseEntity{
                 this.type = type;
         }
 
-        public Set<PictureEntity> getPhotos() {
+        public List<PictureEntity> getPhotos() {
                 return photos;
         }
 
-        public void setPhotos(Set<PictureEntity> photos) {
+        public void setPhotos(List<PictureEntity> photos) {
                 this.photos = photos;
         }
 
-        public Set<OpinionEntity> getOpinions() {
+        public List<OpinionEntity> getOpinions() {
                 return opinions;
         }
 
-        public void setOpinions(Set<OpinionEntity> opinions) {
+        public void setOpinions(List<OpinionEntity> opinions) {
                 this.opinions = opinions;
         }
 }

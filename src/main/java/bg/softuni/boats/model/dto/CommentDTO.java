@@ -1,5 +1,7 @@
 package bg.softuni.boats.model.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public class CommentDTO {
@@ -8,6 +10,7 @@ public class CommentDTO {
 
     private LocalDateTime created;
 
+    @NotNull(message = "Content cannot be empty")
     private String content;
 
     private String author;

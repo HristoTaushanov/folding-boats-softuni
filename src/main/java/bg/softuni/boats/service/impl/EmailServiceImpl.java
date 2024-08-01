@@ -8,18 +8,14 @@ import org.springframework.context.event.EventListener;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
 
 
 @Service
 public class EmailServiceImpl implements EmailService {
     private final JavaMailSender javaMailSender;
-    private final TemplateEngine templateEngine;
 
-    public EmailServiceImpl(JavaMailSender javaMailSender, TemplateEngine templateEngine) {
+    public EmailServiceImpl(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
-        this.templateEngine = templateEngine;
     }
 
     @Override
@@ -37,7 +33,6 @@ public class EmailServiceImpl implements EmailService {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @EventListener(UserRegisterEvent.class)
@@ -56,17 +51,7 @@ public class EmailServiceImpl implements EmailService {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-
-
     }
-
-    private String generateWelcomeEmailBody(String username) {
-        Context context = new Context();
-        context.setVariable("username", username);
-        return templateEngine.process("resources/email/new-user-email", context);
-    }
-
-
 }
 
 

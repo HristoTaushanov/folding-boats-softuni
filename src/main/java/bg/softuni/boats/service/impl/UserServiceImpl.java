@@ -110,9 +110,13 @@ public class UserServiceImpl implements UserService {
     public void demoteUser(Long id) {
         UserEntity userEntity = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found!"));
-        UserRoleEntity userRoleEntity = userRoleRepository.findByRole(UserRoleEnum.ADMIN)
-                .orElseThrow(() -> new IllegalArgumentException("Role ADMIN not found!"));
-        userEntity.getRole().remove(userRoleEntity);
+        List<UserRoleEntity> roles = userEntity.getRole();
+        for (UserRoleEntity role : roles) {
+            if (role.getRole().equals(UserRoleEnum.ADMIN)) {
+                roles.remove(role);
+                break;
+            }
+        }
         userRepository.save(userEntity);
     }
 
@@ -158,6 +162,12 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User with name " + username + " not found!"));
         return modelMapper.map(userEntity, UserViewModel.class);
+    }
+
+    @Override
+    public UserEntity getUserEntityById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found!"));
     }
 
 
