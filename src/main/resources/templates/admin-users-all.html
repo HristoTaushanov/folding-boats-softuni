@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>All users</title></head>
+<link rel="stylesheet" th:href="@{/css/admin-users-all.css}"/>
+<body>
+
+<header><div th:replace="~{fragments/commons::navbar}"></div></header>
+
+<h1 class="text-center">All users</h1>
+<div class="table-responsive m-5">
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th class="align-middle" scope="col">ID</th>
+            <th class="align-middle" scope="col">Username</th>
+            <th class="align-middle" scope="col">Email</th>
+            <th class="align-middle" scope="col">First name</th>
+            <th class="align-middle" scope="col">Last name</th>
+            <th class="align-middle" scope="col">Role</th>
+            <th class="align-middle" scope="col">Promote</th>
+            <th class="align-middle" scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr th:each="u :${users}" th:object="${u}">
+            <td class="align-middle col-md-auto" th:text="*{id}">cell3_1</td>
+            <td class="align-middle col-md-auto" th:text="*{username}">cell2_1</td>
+            <td class="align-middle col-md-3" th:text="*{email}">cell1_1</td>
+            <td class="align-middle col-md-auto" th:text="*{firstName}">cell6_1</td>
+            <td class="align-middle col-md-auto" th:text="*{lastName}">cell4_1</td>
+            <td class="align-middle col-md-auto" th:text="*{role}">cell5_1</td>
+            <td class="align-middle col-md-auto" th:if="*{role.size()==1}">
+                <form th:method="POST"
+                      th:action="@{/users/promote/{id}(id=*{id})}">
+                    <input type="submit" value="Promote" class="btn btn-outline-success">
+                </form>
+            </td>
+            <td class="align-middle col-md-auto" th:if="*{role.size()==2}">
+                <form th:method="POST"
+                      th:action="@{/users/demote/{id}(id=*{id})}">
+                    <input type="submit" value="Demote" class="btn btn-outline-warning">
+                </form>
+            <td class="align-middle col-md-auto">
+                <form th:method="DELETE"
+                      th:action="@{/users/delete/{id}(id=*{id})}">
+                    <input type="submit" value="Delete" class="btn btn-outline-danger">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<nav aria-label="file-pages">
+
+    <ul class="pagination justify-content-center">
+
+        <li class="page-item">
+            <a class="page-link" th:href="@{/users/all}">First</a>
+        </li>
+
+        <li class="page-item" th:if="${currentPage > 1}">
+            <a class="page-link" th:href="@{'/users/all/' + ${currentPage - 1}}">Previous</a>
+        </li>
+
+        <li class="page-item" th:each="page : ${#numbers.sequence(1,totalPages)}">
+            <a class="page-link" th:href="@{'/users/all/' + ${page}}">[[${page}]]</a>
+        </li>
+
+        <li class="page-item" th:if="${currentPage < totalPages}">
+            <a class="page-link" th:href="@{'/users/all/' + ${currentPage + 1}}">Next</a>
+        </li>
+
+        <li class="page-item" th:if="${currentPage < totalPages}">
+            <a class="page-link" th:href="@{'/users/all/' + ${totalPages}}">Last</a>
+        </li>
+    </ul>
+    <p class="text-center">Total users found: [[${totalUsers}]] : Page [[${currentPage}]] of [[${totalPages}]]</p>
+</nav>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
+

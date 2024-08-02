@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head-bootstrap}"><title>Edit profile</title></head>
+<body>
+<header>
+    <div th:replace="~{fragments/commons::navbar}"></div>
+</header>
+
+<article class="my-5 w-50 max-width: 50% mx-auto" id="file-add">
+    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <div class="bd-example m-5 border-5 mx-auto">
+            <h2 class="text-center text-black">Edit your profile</h2>
+            <form th:action="@{/users/profile/edit/{id}(id=*{id})}"
+                  th:method="POST"
+                  th:object="${user}"
+                  class="row g-3">
+
+                <div class="col-md-6">
+                    <label for="username" class="form-label">Username</label>
+                    <input id="username"
+                           th:field="*{username}"
+                           disabled
+                           type="text"
+                           class="form-control"
+                           placeholder="Username"/>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email"
+                           th:field="*{email}"
+                           th:errorclass="is-invalid"
+                           type="text"
+                           class="form-control"
+                           placeholder="Email"/>
+                    <p th:if="${#fields.hasErrors('email')}"
+                       th:errors="*{email}"
+                       class="invalid-feedback errors alert alert-danger"></p>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input id="firstName"
+                           th:field="*{firstName}"
+                           th:errorclass="is-invalid"
+                           type="text"
+                           class="form-control"
+                           placeholder="First Name"/>
+                    <p th:if="${#fields.hasErrors('firstName')}"
+                       th:errors="*{firstName}"
+                       class="invalid-feedback errors alert alert-danger"></p>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input id="lastName"
+                           th:field="*{lastName}"
+                           th:errorclass="is-invalid"
+                           type="text"
+                           class="form-control"
+                           placeholder="Last Name"/>
+                    <p th:if="${#fields.hasErrors('lastName')}"
+                       th:errors="*{lastName}"
+                       class="invalid-feedback errors alert alert-danger"></p>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-main" type="submit">Save changes</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</article>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
