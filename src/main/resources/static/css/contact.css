@@ -1,0 +1,11 @@
+body {
+    background-image: url("../images/contact.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div {
+    color: aqua;
+}
+

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/commons::head-bootstrap}"><title>AddBoat</title></head>
-
+<link rel="stylesheet" th:href="@{/css/boat-add.css}"/>
 <body>
 <nav th:replace="~{fragments/commons::navbar}"></nav>
 
@@ -16,7 +16,7 @@
 
 
         <div class="col-md-6">
-            <label for="name" class="form-label text-black font-weight-bold">Name</label>
+            <label for="name" class="form-label">Name</label>
             <input id="name"
                    th:field="*{name}"
                    th:errorclass="is-invalid"
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-md-6">
-            <label for="description" class="form-label text-black font-weight-bold">Description</label>
+            <label for="description" class="form-label">Description</label>
             <input id="description"
                    th:field="*{description}"
                    th:errorclass="is-invalid"
@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-md-6">
-            <label for="benchesCount" class="form-label text-black font-weight-bold">BenchesCount</label>
+            <label for="benchesCount" class="form-label">BenchesCount</label>
             <input id="benchesCount"
                    th:field="*{benchesCount}"
                    th:errorclass="is-invalid"

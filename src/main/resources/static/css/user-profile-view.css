@@ -1,3 +1,11 @@
+body {
+    background-image: url("../images/user-profile.JPG");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
 .card {
     width: 900px;
     padding: 10px;
@@ -9,7 +17,7 @@
 }
 
 .navbar {
-    background-color: white;
+    background-color: transparent;
 }
 
 form .btn {
@@ -24,3 +32,5 @@ form .btn {
     margin-top: 0;
     font-size: 1rem;
 }
+
+
