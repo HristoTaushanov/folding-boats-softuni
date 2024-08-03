@@ -107,17 +107,9 @@ values  (6, 2),
         (9, 1);
 
 insert into pictures (id, title, url, author_id)
-values  (1, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722409931/r4rk9xa4y89zhlw1et67.png', 7),
-        (2, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722409996/dyoqzwl3a4rm763d0wt5.png', 7),
-        (3, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722410958/txzxiodhgmsh7dgcyomj.png', 7),
-        (4, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722411016/jdsweqwyzgksimm7pclz.png', 7),
-        (5, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722414594/kkpvow5srpmoctp96fpj.png', 7),
-        (6, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722414679/smdfkmzi5ldrjnxbgxsw.png', 7),
-        (7, 'Default title', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722414708/elgcpkgclofd5w8axjkb.png', 7),
-        (8, 'Fortuna', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446783/xvyrkkwlwkwbzvrgyytv.jpg', 7),
-        (9, 'Somovitsa', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446915/sh3utdojm9adpyuu5k7k.jpg', 7),
-        (10, 'Oslo', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446938/to0vfzlqifgwcmrmyzoc.jpg', 7),
-        (11, 'Fortuna', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722447838/z6qxuf3dem7kwjwcptnf.jpg', 7);
+values  (1, 'Fortuna', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446783/xvyrkkwlwkwbzvrgyytv.jpg', 7),
+        (2, 'Somovitsa', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446915/sh3utdojm9adpyuu5k7k.jpg', 7),
+        (3, 'Oslo', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v1722446938/to0vfzlqifgwcmrmyzoc.jpg', 7);
 
 
 insert into foldable_boats (id, benches_count, description, name, type)
@@ -129,19 +121,12 @@ values  (1, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae a
                                                                                                                                    Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'SOMOVITSA', 'LUXURY'),
         (3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
                 non repellendus?
-                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'OSLO', 'LUXURY'),
-        (4, 3, 'sdfgsdfgsdfg', 'sdfgsdg', 'STANDARD');
+                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'OSLO', 'LUXURY');
 
 insert into foldable_boats_photos (boat_entity_id, photos_id)
-values  (4, 2),
-        (4, 3),
-        (4, 4),
-        (4, 6),
-        (4, 7),
-        (1, 8),
-        (2, 9),
-        (3, 10),
-        (1, 11);
+values  (1, 1),
+        (2, 2),
+        (3, 3);
 
 insert into opinions (id, created, text_content, author_id)
 values  (1, '2024-07-31 21:25:14.000000', 'asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf', 6),
@@ -158,7 +143,7 @@ values  (1, 1),
 insert into comments (id, text_content, created, author_id)
 values  (1, 'Не си прав', '2024-08-01 07:33:23.000000', 6),
         (2, 'lorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:25.000000', 7),
-        (3, 'lorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:26.000000', 6),
+        (3, 'sfdgdfgfdg', '2024-08-01 07:33:26.000000', 6),
         (4, 'sfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdsfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:26.000000', 7),
         (5, '4564565446', '2024-08-01 07:26:23.847369', 7),
         (6, 'aaaaaaaaaaaaaa', '2024-08-01 07:30:45.046558', 7);

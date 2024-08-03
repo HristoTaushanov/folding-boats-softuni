@@ -1,10 +1,9 @@
-package bg.softuni.boats;
+package bg.softuni.boats.service.impl;
 
 import bg.softuni.boats.model.entity.UserEntity;
 import bg.softuni.boats.model.entity.UserRoleEntity;
 import bg.softuni.boats.model.enums.UserRoleEnum;
 import bg.softuni.boats.repository.UserRepository;
-import bg.softuni.boats.service.impl.LoginUserDetailService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
