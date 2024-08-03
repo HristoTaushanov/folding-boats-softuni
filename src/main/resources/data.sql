@@ -113,15 +113,9 @@ values  (1, 'Fortuna', 'http://res.cloudinary.com/daqfwv8f3/image/upload/v172244
 
 
 insert into foldable_boats (id, benches_count, description, name, type)
-values  (1, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
-                non repellendus?
-                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'FORTUNA', 'STANDARD'),
-        (2, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodiLorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
-                                                                                                                                   non repellendus?
-                                                                                                                                   Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'SOMOVITSA', 'LUXURY'),
-        (3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
-                non repellendus?
-                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi', 'OSLO', 'LUXURY');
+values  (1, 3, 'Fortuna is the latest boat I have built. Its design is based on the experience I gained during the construction of Somovitsa and Oslo. She has a completely new type of joints between the boards and the transom is reinforced with a new design. Her length is 300 centimeters. She is lighter than Somovitsa and her water displacement volume is greater – 1600 kilograms.', 'FORTUNA', 'STANDARD'),
+        (2, 3, 'Everything started with a conversation with my fishing buddies, about fifteen years ago, when they’ve told me about an existing folding boats on the market. I was fascinated by the idea and after short research I realized that the folding boatsconcept has been invented for first time in the end of nineteenth century by Mellard Treleaven Reade. The folding boats back then were constructed from mahogany and canvas. From the moment I''ve heard about this amazing concept till Somovitsa’s first and successful test on water have passed only three months! Since then I’ve successfully tested her many times in lakes and seas! Once we were in the sea suddenly, out of nowhere, came a storm with 1.5-meter-high waves…and she saved us! That''s how I’ve found out that she loves the waves! Somovitsa is flexible and instead of fighting she is dancing with them! Thanks to her design we didn’t get any significant amount of water on board and we safely made it to the shore! Her length is 300 centimeters and its water displacement volume is 1500 kilograms.', 'SOMOVITSA', 'LUXURY'),
+        (3, 2, 'After Somovitsa’s success one of my friends told me that it would be great if I create a boat, which can be carried and unfolded easier by a single person. Of course, one strong person can carry and unfold Somovitsa, but he or she should be really strong. Back then I’ve been riding a Golf 2 car, which I really loved. I’ve measured that a boat with length of 2.5 meters could be easily loaded in that car. From the other hand I’ve discovered a new and better ways of boat construction and needed to check out would they work in practice, so I’ve started developing the design of Oslo. This boat took me the longest time to accomplish her since the first test on water wasn’t successful. After many tries I’ve finally succeeeded with her design in a such way that now she is as stable and reliable as Somovitsa! Aldoght she is designed for a single person two fishing buddies can go catfishing with her! Her water displacement volume is 750 kilograms.', 'OSLO', 'LUXURY');
 
 insert into foldable_boats_photos (boat_entity_id, photos_id)
 values  (1, 1),
@@ -155,3 +149,4 @@ values  (1, 1),
         (2, 4),
         (2, 5),
         (2, 6);
+
