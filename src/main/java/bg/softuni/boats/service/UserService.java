@@ -17,8 +17,6 @@ public interface UserService {
 
     void updateUserProfile(UserProfileEditDTO userProfileEditDTO);
 
-    void deleteUser(Long id);
-
     Page<UserWithRoleViewModel> findPage(int pageNumber);
 
     void promoteUser(Long id);
@@ -38,4 +36,8 @@ public interface UserService {
     UserViewModel getCurrentUser(String username);
 
     UserEntity getUserEntityById(Long id);
+
+    void deactivate(Long id);
+
+    void activate(Long id);
 }

@@ -14,7 +14,6 @@ html {
 }
 
 body {
-    background-image: url("/images/site-bgr.jpg");
     backdrop-filter: blur(4px);
     padding: 10px;
     background-repeat: no-repeat;
@@ -90,7 +89,6 @@ img {
 .showcase {
     grid-area: showcase;
     min-height: 400px;
-    background: url('/images/amazing-routes.jpg');
     background-size: cover;
     background-position: center;
     padding: 3rem;
@@ -197,19 +195,6 @@ footer {
     text-align: center;
 }
 
-.info div:nth-child(1) {
-    background-image: url("/images/index_sunrice.jpg");
-    background-size: cover;
-    border-bottom-right-radius: 5rem;
-    border-top-left-radius: 5rem;
-}
-
-.info div:nth-child(3) {
-    background-image: url("/images/index_sunrice.jpg");
-    background-size: cover;
-    border-bottom-left-radius: 5rem;
-    border-top-right-radius: 5rem;
-}
 
 .details-main {
     display: grid;

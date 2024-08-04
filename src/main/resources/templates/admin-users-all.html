@@ -17,6 +17,7 @@
             <th class="align-middle" scope="col">Email</th>
             <th class="align-middle" scope="col">First name</th>
             <th class="align-middle" scope="col">Last name</th>
+            <th class="align-middle" scope="col">isActive</th>
             <th class="align-middle" scope="col">Role</th>
             <th class="align-middle" scope="col">Promote</th>
             <th class="align-middle" scope="col">Delete</th>
@@ -29,6 +30,7 @@
             <td class="align-middle col-md-3" th:text="*{email}">cell1_1</td>
             <td class="align-middle col-md-auto" th:text="*{firstName}">cell6_1</td>
             <td class="align-middle col-md-auto" th:text="*{lastName}">cell4_1</td>
+            <td class="align-middle col-md-auto" th:text="*{active}">cell4_1</td>
             <td class="align-middle col-md-auto" th:text="*{role}">cell5_1</td>
             <td class="align-middle col-md-auto" th:if="*{role.size()==1}">
                 <form th:method="POST"
@@ -41,10 +43,16 @@
                       th:action="@{/users/demote/{id}(id=*{id})}">
                     <input type="submit" value="Demote" class="btn btn-outline-warning">
                 </form>
-            <td class="align-middle col-md-auto">
+            <td class="align-middle col-md-auto" th:if="*{active.equals(true)}">
                 <form th:method="DELETE"
-                      th:action="@{/users/delete/{id}(id=*{id})}">
-                    <input type="submit" value="Delete" class="btn btn-outline-danger">
+                      th:action="@{/users/deactivate/{id}(id=*{id})}">
+                    <input type="submit" value="Deactivate user" class="btn btn-outline-danger">
+                </form>
+            </td>
+            <td class="align-middle col-md-auto" th:if="*{active.equals(false)}">
+                <form th:method="PATCH"
+                      th:action="@{/users/activate/{id}(id=*{id})}">
+                    <input type="submit" value="Activate user" class="btn btn-outline-success">
                 </form>
             </td>
         </tr>
@@ -78,8 +86,6 @@
     </ul>
     <p class="text-center">Total users found: [[${totalUsers}]] : Page [[${currentPage}]] of [[${totalPages}]]</p>
 </nav>
-
-<footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
 </html>
 

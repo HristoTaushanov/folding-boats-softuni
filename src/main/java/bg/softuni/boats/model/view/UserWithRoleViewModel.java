@@ -11,8 +11,18 @@ public class UserWithRoleViewModel {
     private String firstName;
     private String lastName;
     private List<UserRoleEnum> role;
+    private Boolean isActive;
 
     public UserWithRoleViewModel() {
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public UserWithRoleViewModel setActive(Boolean active) {
+        isActive = active;
+        return this;
     }
 
     public Long getId() {

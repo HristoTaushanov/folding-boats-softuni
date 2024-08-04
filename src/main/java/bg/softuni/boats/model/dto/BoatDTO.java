@@ -1,8 +1,7 @@
 package bg.softuni.boats.model.dto;
 
 import bg.softuni.boats.model.enums.BoatTypeEnum;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
@@ -10,14 +9,15 @@ import java.util.Set;
 public class BoatDTO {
 
     @NotNull(message = "Name cannot be null")
+    @Size(min = 2, max = 20, message = "Name must be between 3 and 20 characters long")
     private String name;
 
     private Long id;
 
     private String description;
-    @Min(value = 1)
+    @DecimalMin(value = "1", message = "Benches count must be at least 1")
     private Integer benchesCount;
-
+    @NotNull(message = "Type cannot be null")
     private BoatTypeEnum type;
 
     @NotNull

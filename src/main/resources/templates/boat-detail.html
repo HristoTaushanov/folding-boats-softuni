@@ -9,15 +9,6 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/mobile.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
 </head>
 
 <style>
@@ -50,6 +41,10 @@
 
 <body>
 
+<header>
+    <div th:replace="~{fragments/commons::navbar}"></div>
+</header>
+
 <div class="wrapper">
 
     <div class="details-main" th:object="${boat}">
@@ -72,9 +67,7 @@
 
         <section class="comments">
             <h1>Opinions</h1>
-
             <div>
-                <!-- Comments submission -->
                 <form id="commentForm"
                       method="POST"
                       th:action="@{/boat/detail/add-opinion/{id}(id=${boat.id})}">
@@ -90,15 +83,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-                <!-- Comments submission -->
             </div>
-
-            <!-- All comments section -->
-            <div>
-
-                <span id="commentCtnr"><!-- Comments section, filled in by script --></span>
-            </div>
-            <!-- EO: All comments section -->
         </section>
 
         <section class="opinions">
@@ -110,7 +95,8 @@
                 <div class="comments" th:each="c : ${o.comments}">
                     <div class="comment">
                         <p>Author username: <span th:text="${c.author}" class="author"></span></p>
-                        <p>Date: <span th:text="${#temporals.format(c.created, 'dd-MM-yyyy HH:mm')}" class="date"></span></p>
+                        <p>Date: <span th:text="${#temporals.format(c.created, 'dd-MM-yyyy HH:mm')}"
+                                       class="date"></span></p>
                         <p>Comment: <span class="text-content-my" th:text="${c.content}"></span></p>
                     </div>
                 </div>
@@ -134,8 +120,7 @@
 
             </div>
         </section>
-
-        </div>
     </div>
+</div>
 </body>
 </html>

@@ -16,6 +16,7 @@ public class UserEntity extends BaseEntity{
     private String firstName;
     @Column(nullable = false)
     private String lastName;
+    private Boolean isActive;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles",
@@ -28,6 +29,26 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity() {
 
+    }
+
+    public UserEntity(String username, String email, String password, String firstName, String lastName, Boolean isActive, List<UserRoleEntity> role, List<OpinionEntity> addedOpinionEntities) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.isActive = isActive;
+        this.role = role;
+        this.addedOpinionEntities = addedOpinionEntities;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public UserEntity setActive(Boolean active) {
+        isActive = active;
+        return this;
     }
 
     public String getUsername() {

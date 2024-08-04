@@ -40,5 +40,5 @@ mail:
 server:
     error:
       whitelabel:
-        enabled: true
+        enabled: false
       path: /error

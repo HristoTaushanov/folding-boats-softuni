@@ -37,8 +37,8 @@ public class BoatController {
 
     @PostMapping("/add")
     public String addBoat(@Valid BoatDTO boatDTO,
-                              BindingResult bindingResult,
-                              RedirectAttributes redirectAttributes) {
+                          BindingResult bindingResult,
+                          RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("boatDTO", boatDTO);

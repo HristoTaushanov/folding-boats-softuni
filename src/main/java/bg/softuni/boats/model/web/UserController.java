@@ -66,10 +66,16 @@ public class UserController {
     }
 
     @Transactional
-    @DeleteMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id, Principal principal) {
-        UserWithRoleViewModel user = userService.findUserRoleByUsername(principal.getName());
-        userService.deleteUser(id);
+    @DeleteMapping("/deactivate/{id}")
+    public String deActivate(@PathVariable("id") Long id) {
+        userService.deactivate(id);
+        return "redirect:/users/all";
+    }
+
+    @Transactional
+    @PatchMapping("/activate/{id}")
+    public String activate(@PathVariable("id") Long id) {
+        userService.activate(id);
         return "redirect:/users/all";
     }
 

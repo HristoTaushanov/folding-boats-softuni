@@ -1,11 +1,15 @@
 package bg.softuni.boats.model.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class PictureDTO {
 
     private Long id;
 
     private String title;
-
+    @NotNull(message = "URL cannot be empty")
+    @Size(min = 3, max = 200, message = "URL must be between 3 and 200 characters long")
     private String url;
 
     public PictureDTO() {

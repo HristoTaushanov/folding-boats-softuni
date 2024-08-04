@@ -6,6 +6,7 @@ public class UserViewModel {
     private String email;
     private String firstName;
     private String lastName;
+    private Boolean isActive;
 
     public UserViewModel() {
     }
@@ -16,6 +17,15 @@ public class UserViewModel {
 
     public UserViewModel setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public UserViewModel setIsActive(Boolean isActive) {
+        this.isActive = isActive;
         return this;
     }
 

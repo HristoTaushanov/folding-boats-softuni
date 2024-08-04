@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
         user.setRole(List.of(userRoleRepository.findByRole(UserRoleEnum.USER)
                 .orElseThrow(() -> new IllegalArgumentException("Role USER not found!"))));
         user.setPassword(passwordEncoder.encode(userRegistrationDTO.password()));
+        user.setActive(true);
         userRepository.save(user);
 
         applicationEventPublisher.publishEvent(new UserRegisterEvent(
@@ -61,8 +62,7 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = userRepository.findByUsername(name)
                 .orElseThrow(() -> new UserNotFoundException("User with name " + name + " not found!"));
 
-        UserViewModel userViewModel = modelMapper.map(userEntity, UserViewModel.class);
-        return userViewModel;
+        return modelMapper.map(userEntity, UserViewModel.class);
     }
 
     @Override
@@ -75,11 +75,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
 
-    @Override
-    @Transactional
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
+
 
     @Override
     public Page<UserWithRoleViewModel> findPage(int pageNumber) {
@@ -168,6 +164,24 @@ public class UserServiceImpl implements UserService {
     public UserEntity getUserEntityById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found!"));
+    }
+
+    @Override
+    public void deactivate(Long id) {
+        userRepository.findById(id)
+                .ifPresent(userEntity -> {
+                    userEntity.setActive(false);
+                    userRepository.save(userEntity);
+                });
+    }
+
+    @Override
+    public void activate(Long id) {
+        userRepository.findById(id)
+                .ifPresent(userEntity -> {
+                    userEntity.setActive(true);
+                    userRepository.save(userEntity);
+                });
     }
 
 

@@ -25,7 +25,7 @@
             <p th:text="|Number of benches: *{benchesCount}|">Benches Count</p>
             <p th:text="|Description: *{description}|">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
                 non repellendus?Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
-            <a th:href="@{/boat/detail/{id}(id = *{id})}" class="btn">View more info</a>
+            <a th:href="@{/boat/detail/{id}(id = *{id})}" class="btn btn-outline-dark">View more info</a>
         </div>
         <div class="col-lg-4 p-0 overflow-hidden shadow-lg mb-5 rounded-5">
             <img class="img-fluid" th:src="*{photo}" alt="" width="720">

@@ -1,5 +1,8 @@
 package bg.softuni.boats.model.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadPictureDTO {
@@ -8,8 +11,11 @@ public class UploadPictureDTO {
 
     private String title;
 
+    @NotNull(message = "Picture cannot be null")
     private MultipartFile picture;
 
+    @NotNull(message = "Boat name cannot be null")
+    @Size(min = 2, max = 20, message = "Boat name must be between 2 and 20 characters long")
     private String boatName;
 
     public UploadPictureDTO() {
