@@ -61,7 +61,7 @@ This project is licensed under the MIT License.
 
 <h2>💖Like my work?</h2>
 
-If you have any questions suggestions or issues with Visioplan please feel free to contact me at my email address: htaushanov@yahoo.com. I'd be happy to hear from you! 😊
+If you have any questions suggestions or issues with FoldingBoats please feel free to contact me at my email address: htaushanov@yahoo.com. I'd be happy to hear from you! 😊
 
 
 

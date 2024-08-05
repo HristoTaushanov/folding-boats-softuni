@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -92,6 +93,8 @@
                 <p>Author username: <span th:text="${o.author}" class="author"></span></p>
                 <p>Date: <span th:text="${#temporals.format(o.created, 'dd-MM-yyyy HH:mm')}" class="date"></span></p>
                 <p>Opinion: <span class="text-content-my" th:text="${o.textContent}"></span></p>
+
+
                 <div class="comments" th:each="c : ${o.comments}">
                     <div class="comment">
                         <p>Author username: <span th:text="${c.author}" class="author"></span></p>
@@ -100,6 +103,16 @@
                         <p>Comment: <span class="text-content-my" th:text="${c.content}"></span></p>
                     </div>
                 </div>
+
+                <th:block th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                    <div th:each="c : ${o.comments}"
+                         th:object="${c}">
+                        <form th:method="DELETE"
+                              th:action="@{/comment/delete/{id}/{boatId}(id=*{id}, boatId=${boat.id})}">
+                            <input type="submit" value="Delete comment" class="btn btn-outline-danger">
+                        </form>
+                    </div>
+                </th:block>
 
                 <form id="commentFormAnswer"
                       method="POST"
@@ -117,6 +130,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+
 
             </div>
         </section>

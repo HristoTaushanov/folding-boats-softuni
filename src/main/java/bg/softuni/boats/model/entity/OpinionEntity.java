@@ -21,7 +21,7 @@ public class OpinionEntity extends BaseEntity{
     @Column(nullable = false)
     private LocalDateTime created;
 
-    @OneToMany(targetEntity = CommentEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "opinion", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<CommentEntity> comments;
 
     public OpinionEntity() {

@@ -5,6 +5,7 @@ import bg.softuni.boats.model.dto.UploadPictureDTO;
 import bg.softuni.boats.model.entity.PictureEntity;
 
 import java.security.Principal;
+import java.util.List;
 
 public interface PictureService {
 
@@ -13,4 +14,9 @@ public interface PictureService {
     void saveToExistingBoat(UploadPictureDTO uploadPictureDTO);
 
     PictureEntity saveImageWithTitle(String imageUrl, String title);
+
+    void deletePicture(Long id);
+
+    List<PictureEntity> getAllPictures();
+
 }

@@ -30,6 +30,7 @@ public class OpinionServiceImpl implements OpinionService {
                 commentEntity.setAuthor(userService.getUserEntityById(7L));
                 commentEntity.setCreated(LocalDateTime.now());
                 commentEntity.setContent("Please add your comment here!");
+                commentEntity.setOpinion(opinionEntity);
                 opinionEntity.getComments().add(commentEntity);
                 opinionRepository.save(opinionEntity);
             }

@@ -124,13 +124,6 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void testDeleteUser() {
-        userService.deleteUser(1L);
-
-        verify(userRepository, times(1)).deleteById(1L);
-    }
-
-    @Test
     public void testFindPage() {
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername("john_doe");

@@ -133,19 +133,12 @@ values  (1, 1),
         (2, 3),
         (2, 4);
 
-insert into comments (id, text_content, created, author_id)
-values  (1, 'Не си прав', '2024-08-01 07:33:23.000000', 6),
-        (2, 'lorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:25.000000', 7),
-        (3, 'sfdgdfgfdg', '2024-08-01 07:33:26.000000', 6),
-        (4, 'sfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdsfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:26.000000', 7),
-        (5, '4564565446', '2024-08-01 07:26:23.847369', 7),
-        (6, 'aaaaaaaaaaaaaa', '2024-08-01 07:30:45.046558', 7);
+insert into comments (id, text_content, created, author_id, opinion_id)
+values  (1, 'Не си прав', '2024-08-01 07:33:23.000000', 6, 1),
+        (2, 'lorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:25.000000', 7, 1),
+        (3, 'sfdgdfgfdg', '2024-08-01 07:33:26.000000', 6,2),
+        (4, 'sfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdsfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:26.000000', 7, 2),
+        (5, '4564565446', '2024-08-01 07:26:23.847369', 7, 3),
+        (6, 'aaaaaaaaaaaaaa', '2024-08-01 07:30:45.046558', 7, 3);
 
-insert into opinions_comments (opinion_entity_id, comments_id)
-values  (1, 1),
-        (1, 2),
-        (2, 3),
-        (2, 4),
-        (2, 5),
-        (2, 6);
 

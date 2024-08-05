@@ -172,6 +172,7 @@ public class BoatServiceImpl implements BoatService {
                 commentEntity.setContent(commentContent);
                 commentEntity.setCreated(LocalDateTime.now());
                 commentEntity.setAuthor(userEntity);
+                commentEntity.setOpinion(o);
 
                 o.getComments().add(commentEntity);
             }

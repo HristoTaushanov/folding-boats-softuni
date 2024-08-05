@@ -10,6 +10,8 @@ import bg.softuni.boats.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PictureServiceImpl implements PictureService {
     private final CloudImageService cloudImageService;
@@ -63,5 +65,15 @@ public class PictureServiceImpl implements PictureService {
                 .setTitle(title);
 
         return photoRepository.save(pictureEntity);
+    }
+
+    @Override
+    public void deletePicture(Long id) {
+        photoRepository.deleteById(id);
+    }
+
+    @Override
+    public List<PictureEntity> getAllPictures() {
+        return photoRepository.findAll();
     }
 }

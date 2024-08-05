@@ -27,11 +27,14 @@ public class UserEntity extends BaseEntity{
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<OpinionEntity> addedOpinionEntities;
 
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<CommentEntity> comments;
+
     public UserEntity() {
 
     }
 
-    public UserEntity(String username, String email, String password, String firstName, String lastName, Boolean isActive, List<UserRoleEntity> role, List<OpinionEntity> addedOpinionEntities) {
+    public UserEntity(String username, String email, String password, String firstName, String lastName, Boolean isActive, List<UserRoleEntity> role, List<OpinionEntity> addedOpinionEntities, List<CommentEntity> comments) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -40,15 +43,7 @@ public class UserEntity extends BaseEntity{
         this.isActive = isActive;
         this.role = role;
         this.addedOpinionEntities = addedOpinionEntities;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public UserEntity setActive(Boolean active) {
-        isActive = active;
-        return this;
+        this.comments = comments;
     }
 
     public String getUsername() {
@@ -96,6 +91,15 @@ public class UserEntity extends BaseEntity{
         return this;
     }
 
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public UserEntity setActive(Boolean active) {
+        isActive = active;
+        return this;
+    }
+
     public List<UserRoleEntity> getRole() {
         return role;
     }
@@ -111,6 +115,15 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setAddedOpinionEntities(List<OpinionEntity> addedOpinionEntities) {
         this.addedOpinionEntities = addedOpinionEntities;
+        return this;
+    }
+
+    public List<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public UserEntity setComments(List<CommentEntity> comments) {
+        this.comments = comments;
         return this;
     }
 }
