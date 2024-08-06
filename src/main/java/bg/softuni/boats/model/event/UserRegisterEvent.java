@@ -3,8 +3,8 @@ package bg.softuni.boats.model.event;
 import org.springframework.context.ApplicationEvent;
 
 public class UserRegisterEvent extends ApplicationEvent {
-    private String username;
-    private String email;
+    private final String username;
+    private final String email;
 
     public UserRegisterEvent(Object source, String username, String email) {
         super(source);

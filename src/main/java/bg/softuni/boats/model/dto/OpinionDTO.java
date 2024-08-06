@@ -20,13 +20,7 @@ public class OpinionDTO {
     public OpinionDTO() {
     }
 
-    public OpinionDTO(Long id, String author, String textContent, LocalDateTime created, Set<CommentDTO> comments) {
-        this.id = id;
-        this.author = author;
-        this.textContent = textContent;
-        this.created = created;
-        this.comments = comments;
-    }
+
 
     public Long getId() {
         return id;

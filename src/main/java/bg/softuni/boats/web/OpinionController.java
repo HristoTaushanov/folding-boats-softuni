@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import bg.softuni.boats.model.dto.OpinionDTO;
 import bg.softuni.boats.service.BoatService;
@@ -12,14 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/opinions")
 public class OpinionController {
-
-    private final BoatService boatService;
-    private final OpinionService opinionService;
-
-    public OpinionController(BoatService boatService, OpinionService opinionService) {
-        this.boatService = boatService;
-        this.opinionService = opinionService;
-    }
 
     @GetMapping("/all-for-boat/{id}")
     public String opinionsPerBoat(Model model, @PathVariable Long id){

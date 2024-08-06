@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import java.security.Principal;
 import java.util.List;
@@ -23,13 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     private final BoatService boatService;
-    private final PictureService pictureService;
-    private final CommentService commentService;
 
-    public HomeController(BoatService boatService, PictureService pictureService, CommentService commentService) {
+    public HomeController(BoatService boatService) {
         this.boatService = boatService;
-        this.pictureService = pictureService;
-        this.commentService = commentService;
     }
 
     @GetMapping("/")
@@ -38,7 +34,7 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String homePage(Model model, Principal principal, @AuthenticationPrincipal UserDetails viewer) {
+    public String homePage(Model model) {
 
         List<BoatViewModel> allBoats = boatService.getAllBoat();
         model.addAttribute("boats", allBoats);

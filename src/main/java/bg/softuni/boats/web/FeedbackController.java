@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import bg.softuni.boats.model.view.FeedbackViewModel;
 import bg.softuni.boats.service.EmailService;
@@ -71,6 +71,4 @@ public class FeedbackController {
 
         return "redirect:/";
     }
-
-
 }

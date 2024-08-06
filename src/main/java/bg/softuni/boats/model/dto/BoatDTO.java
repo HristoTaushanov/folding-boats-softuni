@@ -1,7 +1,9 @@
 package bg.softuni.boats.model.dto;
 
 import bg.softuni.boats.model.enums.BoatTypeEnum;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
@@ -26,16 +28,6 @@ public class BoatDTO {
     private Set<OpinionDTO> opinions;
 
     public BoatDTO() {
-    }
-
-    public BoatDTO(String name, Long id, String description, Integer benchesCount, BoatTypeEnum type, MultipartFile photos, Set<OpinionDTO> opinions) {
-        this.name = name;
-        this.id = id;
-        this.description = description;
-        this.benchesCount = benchesCount;
-        this.type = type;
-        this.photo = photos;
-        this.opinions = opinions;
     }
 
     public String getName() {

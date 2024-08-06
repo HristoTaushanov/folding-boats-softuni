@@ -19,12 +19,6 @@ public class CommentDTO {
     public CommentDTO() {
     }
 
-    public CommentDTO(Long id, LocalDateTime created, String content, String author) {
-        this.id = id;
-        this.created = created;
-        this.content = content;
-        this.author = author;
-    }
 
     public Long getId() {
         return id;

@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import bg.softuni.boats.model.dto.UserProfileEditDTO;
 import bg.softuni.boats.model.view.UserViewModel;

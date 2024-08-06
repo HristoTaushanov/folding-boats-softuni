@@ -15,12 +15,6 @@ public class PictureDTO {
     public PictureDTO() {
     }
 
-    public PictureDTO(Long id, String title, String url) {
-        this.id = id;
-        this.title = title;
-        this.url = url;
-
-    }
 
     public Long getId() {
         return id;

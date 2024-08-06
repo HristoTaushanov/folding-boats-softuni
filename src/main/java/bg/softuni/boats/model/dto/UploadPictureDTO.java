@@ -21,12 +21,6 @@ public class UploadPictureDTO {
     public UploadPictureDTO() {
     }
 
-    public UploadPictureDTO(Long id, String title, MultipartFile picture, String boatName) {
-        this.id = id;
-        this.title = title;
-        this.picture = picture;
-        this.boatName = boatName;
-    }
 
     public Long getId() {
         return id;

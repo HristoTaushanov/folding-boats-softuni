@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import bg.softuni.boats.model.dto.BoatDTO;
 import bg.softuni.boats.model.dto.UploadPictureDTO;
@@ -39,7 +39,7 @@ public class PictureController {
     }
 
     @PostMapping("/upload")
-    public String addBuilding(@Valid UploadPictureDTO uploadPictureDTO,
+    public String addPictureToBoat(@Valid UploadPictureDTO uploadPictureDTO,
                               BindingResult bindingResult,
                               RedirectAttributes redirectAttributes) {
 

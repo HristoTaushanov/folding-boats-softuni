@@ -1,4 +1,4 @@
-package bg.softuni.boats.model.web;
+package bg.softuni.boats.web;
 
 import bg.softuni.boats.service.CommentService;
 import org.springframework.stereotype.Controller;

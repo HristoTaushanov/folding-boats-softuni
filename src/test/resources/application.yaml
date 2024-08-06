@@ -1,0 +1,28 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+cloudinary:
+  cloud-name: testName
+  api-key: testApiKey
+  api-secret: testApiSecret
+
+mail:
+  visioplan: "boat@support.com"
+  host: localhost
+  port: 3333
+  username: testUsername
+  password: testPassword
+
+
+

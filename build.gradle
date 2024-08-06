@@ -29,7 +29,12 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     implementation 'org.modelmapper:modelmapper:3.2.0'
     implementation "org.modelmapper:modelmapper-module-record:1.0.0"
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.hsqldb:hsqldb'
+    testImplementation 'com.icegreen:greenmail:2.0.0'
+
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 

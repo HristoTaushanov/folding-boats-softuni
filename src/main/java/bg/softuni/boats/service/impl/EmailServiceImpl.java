@@ -44,9 +44,9 @@ public class EmailServiceImpl implements EmailService {
 
         try {
             mimeMessageHelper.setTo(event.getEmail());
-            mimeMessageHelper.setFrom("visioplan@somefen.com");
-            mimeMessageHelper.setSubject("Welcome to SomeFen!");
-            mimeMessageHelper.setText("Welcome to SomeFen!", true);
+            mimeMessageHelper.setFrom("somfen@somfen.com");
+            mimeMessageHelper.setSubject("Welcome to SomFen!");
+            mimeMessageHelper.setText("Welcome to SomFen!", true);
             javaMailSender.send(mimeMessageHelper.getMimeMessage());
         } catch (MessagingException e) {
             throw new RuntimeException(e);
