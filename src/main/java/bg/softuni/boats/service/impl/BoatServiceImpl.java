@@ -15,6 +15,7 @@ import bg.softuni.boats.service.PictureService;
 import bg.softuni.boats.service.UserService;
 import bg.softuni.boats.service.exception.BoatNotFoundException;
 import bg.softuni.boats.service.exception.UserNotFoundException;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -104,6 +105,7 @@ public class BoatServiceImpl implements BoatService {
     }
 
     @Override
+    @Transactional
     public BoatDetailsViewModel getBoatDetailsById(Long id) {
         return boatRepository.findById(id)
                 .map(b -> {
