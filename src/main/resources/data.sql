@@ -122,10 +122,10 @@ values  (1, 1),
         (3, 3);
 
 insert into opinions (id, created, text_content, author_id)
-values  (1, '2024-07-31 21:25:14.000000', 'asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf', 6),
-        (2, '2024-07-31 21:25:25.000000', '3123123asfasdfasdfasdf', 7),
-        (3, '2024-07-31 21:25:14.000000', 'asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf', 7),
-        (4, '2024-07-31 21:25:25.000000', '3123123asfasdfasdfasdf', 6);
+values  (1, '2024-07-31 21:25:14.000000', 'Looks so cool!', 6),
+        (2, '2024-07-31 21:25:25.000000', 'I really like her!', 7),
+        (3, '2024-07-31 21:25:14.000000', 'It took me a lot of time to create it.', 7),
+        (4, '2024-07-31 21:25:25.000000', 'I would love to have one!', 6);
 
 insert into foldable_boats_opinions (boat_entity_id, opinions_id)
 values  (1, 1),
@@ -134,11 +134,11 @@ values  (1, 1),
         (2, 4);
 
 insert into comments (id, text_content, created, author_id, opinion_id)
-values  (1, 'Не си прав', '2024-08-01 07:33:23.000000', 6, 1),
-        (2, 'lorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:25.000000', 7, 1),
-        (3, 'sfdgdfgfdg', '2024-08-01 07:33:26.000000', 6,2),
-        (4, 'sfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdsfdsdfgfsddfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsdlorem dfgsdfgsdgsdsdfgsd', '2024-08-01 07:33:26.000000', 7, 2),
-        (5, '4564565446', '2024-08-01 07:26:23.847369', 7, 3),
-        (6, 'aaaaaaaaaaaaaa', '2024-08-01 07:30:45.046558', 7, 3);
+values  (1, 'Totally agree with you!', '2024-08-01 07:33:23.000000', 6, 1),
+        (2, 'Nice boat.', '2024-08-01 07:33:25.000000', 7, 1),
+        (3, 'She is so cool', '2024-08-01 07:33:26.000000', 6,2),
+        (4, 'I would like to try this boat!', '2024-08-01 07:33:26.000000', 7, 2),
+        (5, 'Wow!', '2024-08-01 07:26:23.847369', 7, 3),
+        (6, 'She is so nice!', '2024-08-01 07:30:45.046558', 7, 3);
 
 
